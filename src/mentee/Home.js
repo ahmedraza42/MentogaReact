@@ -12,18 +12,23 @@ import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
 import { Carousel } from "@trendyol-js/react-carousel";
 import API_CALLS from "../services/constants";
+import { getCategory } from "../redux/actions/country";
+import { useDispatch, useSelector } from "react-redux";
+import Categories from "../components/Categories";
 
 const Home = () => {
+  const dispatch = useDispatch();
   const [model, setModel] = useState([]);
   const [loading, setLoading] = useState(true);
+  const categoryList = useSelector((state) => state.category.category);
   useEffect(() => {
+    getCategoryy();
     getHomePageData();
   }, []);
   const getHomePageData = async () => {
     try {
       const respose = await API_CALLS.HomePreferedMentors();
       if (respose.status === true) {
-        console.log("respose", respose);
         setModel(respose.objModelList);
       } else {
         throw respose.userMessage;
@@ -35,11 +40,27 @@ const Home = () => {
       setLoading(false)
     }
   };
+
+  const getCategoryy=async()=>{
+    try {
+      const response=await API_CALLS.getAllcategories();
+      if(response.status===true){
+        console.log('response.modelList',response.modelList)
+        dispatch(getCategory(response.modelList))
+      }
+      else{
+        throw response.userMessage;
+      }
+    } catch (error) {
+      console.log(error,'response category')
+    }
+  }
   
   return (
     <dic className=" bg-[#fff]">
      <Navbar />
       <Hero />
+      {categoryList?.length>0&&<Categories model={categoryList}/>}
       <Analytics /> 
       {!loading&& <CrearorProfile model={model} />}
       <Newsletter />

@@ -6,12 +6,25 @@ import Newsletter from '../components/Newsletter'
 import Cards from '../components/Cards'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
+import { Col, Row } from 'react-bootstrap'
+import Input from '../components/Input'
+import InputExampleIcon from '../components/SearchInput'
+import DropdownExampleDivider from '../components/Dropdown'
 
 const FindExperts=()=> {
   return (
-    <div className=' bg-[#151515]'>
+    <div className=' bg-[#fff]'>
     <Navbar />
-    {/* <Hero/> */}
+    <Row className='max-w-[900px] mx-auto my-4  '>
+      <Col lg={10} className='items-center flex '>
+      <InputExampleIcon />
+      </Col>
+      <Col lg={2}>
+        <div className=' items-center flex '>
+        <DropdownExampleDivider/>
+        </div>
+      </Col>
+    </Row>
     {/* <Analytics/>
     <CrearorProfile/>
     <Newsletter/>

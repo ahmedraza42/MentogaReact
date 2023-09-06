@@ -11,16 +11,20 @@ import Cards from './components/Cards';
 import Footer from './components/Footer';
 import CrearorProfile from './components/CrearorProfile';
 import FindExperts from './mentee/FindExperts';
+import store from "./redux/store";
+import { Provider } from 'react-redux';
 function App() {
   return (
-    
-      <BrowserRouter basename="/">
+    <Provider store={store}>
+<BrowserRouter basename="/">
       <Routes>
       {/* <Route path="/" element={<Login />} /> */}
       <Route path="/" element={<Home />} />
       <Route path="/FindExperts" element={<FindExperts />} />
           </Routes>
       </BrowserRouter>
+    </Provider>
+      
 
    
   );

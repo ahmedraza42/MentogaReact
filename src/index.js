@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import 'semantic-ui-css/semantic.min.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import '../node_modules/react-bootstrap/dist/react-bootstrap.min'
