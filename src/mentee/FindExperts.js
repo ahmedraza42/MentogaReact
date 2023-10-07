@@ -15,15 +15,19 @@ const FindExperts=()=> {
   return (
     <div className=' bg-[#fff]'>
     <Navbar />
-    <Row className='max-w-[900px] mx-auto my-4  '>
-      <Col lg={10} className='items-center flex '>
+    <Row sm={2} className='max-w-[900px] mx-auto my-4 sm:mx-5 '>
+    <input placeholder='kkkk' className=' border px-3 py-3 rounded '/>
+    {/* <div className=' items-center flex '>
+        <DropdownExampleDivider/>
+        </div> */}
+      {/* <Col  className='items-center flex '>
       <InputExampleIcon />
-      </Col>
-      <Col lg={2}>
+      </Col> */}
+      {/* <Col lg={2} className=''>
         <div className=' items-center flex '>
         <DropdownExampleDivider/>
         </div>
-      </Col>
+      </Col> */}
     </Row>
     {/* <Analytics/>
     <CrearorProfile/>

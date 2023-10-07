@@ -30,6 +30,7 @@ const Home = () => {
       const respose = await API_CALLS.HomePreferedMentors();
       if (respose.status === true) {
         setModel(respose.objModelList);
+        console.log('objModelList'+respose.objModelList)
       } else {
         throw respose.userMessage;
       }

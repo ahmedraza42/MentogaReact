@@ -15,12 +15,14 @@ const CrearorProfile = ({model}) => {
     />
   ));
   return (
-    <div className="max-w-[1240px] mx-auto  py-[1rem]  bg-[#ffff] ">
+    <div className=" w-full py-[1rem]  bg-[#ffff] px-4 ">
+    <div className="max-w-[1240px] mx-auto">
      <SliderHeader type={'Business'} heading={'Connect with CEOs, executives, coaches, and more'}/>
      <div className=" bg-[#ffff]">
      <Carousel  className=" bg-[#ffff] my-5" show={4} slide={3} swiping={true}>
         {itemList}
       </Carousel>
+      </div>
       </div>
     </div>
   );
