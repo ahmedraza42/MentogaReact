@@ -1,0 +1,12 @@
+.horizontal-scroll-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 10px;
+  }
+.categoryName{
+    margin-top: 2rem;
+}
+.card-container{
+    display: flex;
+    align-items: center;
+}

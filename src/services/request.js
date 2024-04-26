@@ -5,12 +5,13 @@ import { API_URLS, BASE_URL } from './constants';
 import TokenStorageService from './tokenService';
 // import * as RootNavigation from '../navigations/RootNavigation';
 import { getItemFromStorage } from '../utils/storage';
+// import { UserContext } from '../context/UserContext';
 
 
 const _tokenStorageService = TokenStorageService.getService();
-
+let isTokenRefresh=false;
 const instance = axios.create({
-  timeout: 4000000,
+  timeout: 5000000,
 });
 
 // Add a request interceptor
@@ -37,7 +38,6 @@ instance.interceptors.response.use(
     if (error.response && error.response.status >= 500) {
       return Promise.reject(error);
     }
-
     if (
       error.response &&
       error.response.status === 401
@@ -50,32 +50,37 @@ instance.interceptors.response.use(
 
     else if (
       error.response &&
-      error.response.status === 401
+      error.response.status === 401 &&
+      !isTokenRefresh
     ) {
-      // originalRequest._retry = true;
-      const headers = {}
+      isTokenRefresh=true;
+      const headers = {
+        'Content-Type': 'application/json'
+      }
       const user = await getItemFromStorage('current_user');
-      console.log(';user in request',user[1])
       var data = JSON.stringify({
         "userID":  user[1]?.userID,
-        "userName": user[0]?.fullName,
+        "userName": user[1]?.userName,
         "deviceID":  user[1]?.deviceID,
-        "email":  user[0]?.email,
+        "email":  user[1]?.email,
         "type":  user[1]?.type,
         "token":await _tokenStorageService.getAccessToken(),
         "refreshToken": await _tokenStorageService.getRefreshToken(),
       });
+      console.log('refresh token api data',data)
       return instance
         .post(`${BASE_URL}/account/refreshToken`, data,{headers:headers})
         .then(async res => {
           if (res.status >= 200 && res.status <= 400) {
-            console.log('refresh  res', res,'originalRequest',originalRequest);
+            // console.log('refresh  res', res,'originalRequest',originalRequest);
+            isTokenRefresh=false;
+            console.log('refresh  res res ', res,'token  :',res?.data?.token  ,'   refresh token',res?.data?.refreshToken);
             await _tokenStorageService.setAccessToken(res?.data?.token);
             await _tokenStorageService.setRefreshToken(res?.data?.refreshToken);
-            console.log('true', originalRequest.headers);
+            
             originalRequest.headers['Authorization'] =
               'Bearer ' + (await _tokenStorageService.getAccessToken());
-
+              console.log('originalRequest.headers after update', originalRequest);
             return instance(originalRequest);
           }
         })
@@ -118,21 +123,15 @@ export const getApiRequestHeader = async url => {
 // update headers if it is not found
 export const updateHeaders = async url => {
   // const header = await getApiRequestHeader(url);
-  if(url.includes('mentee/UploadImage') || url.includes('/mentor/UploadImage') || url.includes('/Blog/createBlogs') || url.includes('/Blog/editBlogs') ||url.includes('update-mentor-resolution')||url.includes('mentee-dispute-resolution-create-update') || url.includes('api/Home/upload-cloudinary-video') || url.includes('api/user/get-user-profile') || url.includes('api/user/upload-user-video')||url.includes('api/user/upload-user-image')||url.includes('api/chat/user-chat-media') ){    console.log('multipart')
+  if(url.includes('mentee/UploadImage') || url.includes('/mentor/UploadImage') || url.includes('/Blog/createBlogs') || url.includes('/Blog/editBlogs') ||url.includes('update-mentor-resolution')||url.includes('mentee-dispute-resolution-create-update') || url.includes('api/Home/upload-cloudinary-video') || url.includes('api/user/get-user-profile') || url.includes('api/user/upload-user-video')||url.includes('api/user/upload-user-image')||url.includes('api/chat/user-chat-media') ){ 
     instance.defaults.headers = { 
       'Content-Type': 'multipart/form-data',
-      "Access-Control-Allow-Origin": 'https://localhost:3000',
-      'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-      'Access-Control-Allow-Credentials': 'true',
       'IsReceivedFromMobile':true
   };
   }
   else{
     instance.defaults.headers = { 
       'Content-Type': 'application/json',
-      "Access-Control-Allow-Origin": 'https://localhost:3000',
-      'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-      'Access-Control-Allow-Credentials': 'true',
       'IsReceivedFromMobile':true
   };
   }

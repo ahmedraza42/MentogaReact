@@ -1,0 +1,51 @@
+.root{
+    border-radius: 15px;
+    /* background-color: red; */
+    box-shadow: 0px 10px 10px 10px #0000000f;
+    margin-bottom: 2px;
+    overflow: hidden;
+}
+.video-view{
+    /* background-color: red; */
+    height: 25vh;
+    width: 100%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* width: 100%;
+    height: 100%; */
+    background-color: #e7e7e7;
+}
+.video-view img{
+    object-fit: contain;
+}
+.profile-view{
+    height: 30vh;
+    width: 100%;
+    display: flex;
+    padding: 1rem
+    /* justify-content: center;
+    align-items: center; */
+}
+.img{
+    border-radius: 15px;
+    width: 250px;
+    width: 20%;
+    height: 280px;
+    transform: translateY(-50px);
+    overflow: hidden;
+    
+}
+.video_img{
+
+}
+.profile-section{
+    padding: 2rem;
+    width: 80%;
+}
+.mentorName{
+    display: flex;
+    align-items: center;
+}

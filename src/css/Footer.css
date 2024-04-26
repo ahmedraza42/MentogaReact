@@ -1,0 +1,7 @@
+.logoImage{
+width: 100px;
+height: 100px;
+}
+.logoImage img{
+    object-fit: contain;
+}

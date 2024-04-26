@@ -7,7 +7,11 @@ import 'semantic-ui-css/semantic.min.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import '../node_modules/react-bootstrap/dist/react-bootstrap.min'
-
+import './fonts/Gilroy-Bold.ttf';
+import './fonts/Gilroy-Medium.ttf';
+import './fonts/Gilroy-Light.ttf';
+import './fonts/Gilroy-ExtraBold.ttf';
+import './fonts/Gilroy-Regular.ttf';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

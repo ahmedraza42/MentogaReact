@@ -1,0 +1,27 @@
+.navimg{
+    width: 50;
+    height: 30px;
+    display: flex;
+
+    align-items: center;
+}
+.navimg img{
+    object-fit: contain;
+}
+
+.nav_btn{
+    /* width: 120px; */
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 5px;
+    margin: 0 1rem;
+    color: black;
+    padding: 0 1rem
+}
+
+.color{
+    background-color: blue;
+}

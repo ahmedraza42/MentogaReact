@@ -5,17 +5,18 @@ import Typed from "react-typed";
 const Hero = () => {
   const navigate = useNavigate();
   return (
-    <div className="text-black ">
-      <div className="max-w-[800px] mt-[100px] h-[35vh] w-full  mx-auto text-center flex flex-col justify-center">
-        <h1 className="md:text-7xl sm:text-6xl text-4xl font-bold md:py-6">
+    <div style={{backgroundImage: 'url("https://res.cloudinary.com/dmdawjgs8/image/upload/v1706001243/new/Mentoga_Slide_Cover_1_iablfl.webp")'}} className="text-black ">
+      <div className="max-w-[800px] h-[45vh] w-full  mx-auto text-center flex flex-col justify-center ">
+        <h1 style={{ color: '#ffff' }} className="md:text-7xl sm:text-6xl text-4xl font-bold md:py-6 color:white">
           Lets Grow together.
         </h1>
         <div className="flex justify-center items-center">
-          <p className="md:text-5xl sm:text-4xl text-xl font-bold py-4">
+          <p style={{ color: '#ffff' }} className="md:text-5xl sm:text-4xl text-xl font-bold py-4">
             Meet one-on-one with
           </p>
 
           <Typed
+          style={{ color: '#ffff' }}
             className="md:text-5xl sm:text-4xl text-xl font-bold md:pl-4 pl-2 mb-3"
             strings={["Experts", "Superstars"]}
             typeSpeed={120}

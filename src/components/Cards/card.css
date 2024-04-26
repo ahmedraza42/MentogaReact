@@ -1,0 +1,14 @@
+.cardRoot{
+    width: 400rem;
+    height: 280px;
+    display: flex;
+
+    /* border-radius: 20; */
+}
+
+.card-image {
+    width: 100%; /* Image takes full width of the card */
+    height: 100%; /* Image takes full height of the card */
+    object-fit: cover; 
+    border-radius: 10px;/* Ensures the image covers the entire space */
+  }

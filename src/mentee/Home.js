@@ -4,17 +4,16 @@ import Input from "../components/Input";
 import CreatorMiniProfile from "../components/CreatorMiniProfile";
 import "../css/Home.css";
 import Analytics from "../components/Analytics";
-import CrearorProfile from "../components/CrearorProfile";
+import CrearorProfile from "../components/Categories/CreatorProfile/CrearorProfile";
 import Newsletter from "../components/Newsletter";
-import Cards from "../components/Cards";
+import Cards from "../components/Cards/Cards";
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
-import { Carousel } from "@trendyol-js/react-carousel";
 import API_CALLS from "../services/constants";
 import { getCategory } from "../redux/actions/country";
 import { useDispatch, useSelector } from "react-redux";
-import Categories from "../components/Categories";
+import Categories from "../components/Categories/Categories";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -26,11 +25,12 @@ const Home = () => {
     getHomePageData();
   }, []);
   const getHomePageData = async () => {
+    console.log('objModelList')
     try {
-      const respose = await API_CALLS.HomePreferedMentors();
+      const respose = await API_CALLS.dynamicCarusel();
       if (respose.status === true) {
         setModel(respose.objModelList);
-        console.log('objModelList'+respose.objModelList)
+        
       } else {
         throw respose.userMessage;
       }
@@ -56,17 +56,18 @@ const Home = () => {
       console.log(error,'response category')
     }
   }
-  
+ 
   return (
-    <dic className=" bg-[#fff]">
+    <div className=" bg-[#fff]">
+    
      <Navbar />
       <Hero />
-      {categoryList?.length>0&&<Categories model={categoryList}/>}
+    
       <Analytics /> 
+      {categoryList?.length>0&&<Categories categories={categoryList}/>}
       {!loading&& <CrearorProfile model={model} />}
       <Newsletter />
-      <Footer />
-    </dic>
+    </div>
   );
 };
 

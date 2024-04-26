@@ -1,9 +1,9 @@
 import React from 'react'
 import Hero from '../components/Hero'
 import Analytics from '../components/Analytics'
-import CrearorProfile from '../components/CrearorProfile'
+import CrearorProfile from '../components/Categories/CreatorProfile/CrearorProfile'
 import Newsletter from '../components/Newsletter'
-import Cards from '../components/Cards'
+import Cards from '../components/Cards/Cards'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import { Col, Row } from 'react-bootstrap'
@@ -17,22 +17,16 @@ const FindExperts=()=> {
     <Navbar />
     <Row sm={2} className='max-w-[900px] mx-auto my-4 sm:mx-5 '>
     <input placeholder='kkkk' className=' border px-3 py-3 rounded '/>
-    {/* <div className=' items-center flex '>
-        <DropdownExampleDivider/>
-        </div> */}
-      {/* <Col  className='items-center flex '>
-      <InputExampleIcon />
-      </Col> */}
-      {/* <Col lg={2} className=''>
-        <div className=' items-center flex '>
+    <div className=' items-center flex '>
         <DropdownExampleDivider/>
         </div>
-      </Col> */}
+      
+      
     </Row>
-    {/* <Analytics/>
+    <Analytics/>
     <CrearorProfile/>
     <Newsletter/>
-    <Cards/> */}
+    <Cards/>
     <Footer/> 
   </div>
   )

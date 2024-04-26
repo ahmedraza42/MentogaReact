@@ -107,57 +107,70 @@ const Login = () => {
   //   }
   //  }
   return (
-    <Container className="vh-100 ">
-    <Row className="justify-content-center align-content-center vh-100">
-    <Col className="d-lg-block d-none">
-    <div className="vh-100 justify-content-center align-items-center d-flex">
-        <img src="../Assets/loginImage.png" style={{width:'100%'}} />
+    <div>
+       <div className="max-w-[800px] mt-[100px] h-[35vh] w-full  mx-auto text-center flex flex-col justify-center">
+       <h1 className="md:text-7xl sm:text-6xl text-4xl font-bold md:py-6">
+          Login
+        </h1>
+        <div >
+        <h3>Email</h3>
+        <input  value={'frfrfr'} placeholder="fdfd" className=" border-1 p-3"/>
         </div>
-      </Col>
-      <Col className="px-5">
-            <div className=" vh-100 justify-content-center align-items-center d-flex">
-            {/* <Row> */}
-            <Col>
-            <div>
-            <Input
+      
+        <input placeholder="fdfd" className=" border-1 p-3 mt-4"/>
+       </div>
+    </div>
+    // <Container className="vh-100 ">
+    // <Row className="justify-content-center align-content-center vh-100">
+    // <Col className="d-lg-block d-none">
+    // <div className="vh-100 justify-content-center align-items-center d-flex">
+    //     <img src="../Assets/loginImage.png" style={{width:'100%'}} />
+    //     </div>
+    //   </Col>
+    //   <Col className="px-5">
+    //         <div className=" vh-100 justify-content-center align-items-center d-flex">
+    //         {/* <Row> */}
+    //         <Col>
+    //         <div>
+    //         <Input
            
-           placeholder={"Email"}
-           src={"../Assets/email.png"}
-           value={email}
-           onChange={(e) => {
-             setEmail(e.target.value);
-           }}
-         />
-            </div>
-            <div className=" mt-3">
-            <Input placeholder={"Password"}
-            src={"../Assets/password.png"}
-             value={pass} 
-             onChange={(e) => {
-             setPassword(e.target.value);
-           }}/>
-            </div>
+    //        placeholder={"Email"}
+    //        src={"../Assets/email.png"}
+    //        value={email}
+    //        onChange={(e) => {
+    //          setEmail(e.target.value);
+    //        }}
+    //      />
+    //         </div>
+    //         <div className=" mt-3">
+    //         <Input placeholder={"Password"}
+    //         src={"../Assets/password.png"}
+    //          value={pass} 
+    //          onChange={(e) => {
+    //          setPassword(e.target.value);
+    //        }}/>
+    //         </div>
             
            
          
-           <Button className="mt-3 btn-submit" variant="primary" onClick={()=> alert("Your file is being uploaded!")} >Primary</Button>{' '}
-            </Col>
+    //        <Button className="mt-3 btn-submit" variant="primary" onClick={()=> alert("Your file is being uploaded!")} >Primary</Button>{' '}
+    //         </Col>
             
            
         
 
   
-            {/* </Row> */}
+    //         {/* </Row> */}
             
-            </div>
+    //         </div>
           
        
         
-      </Col>
-    </Row>
+    //   </Col>
+    // </Row>
      
       
-    </Container>
+    // </Container>
   );
 };
 

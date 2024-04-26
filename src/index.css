@@ -11,6 +11,26 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+@font-face {
+  font-family: "GilroyBold";
+  src: local("GilroyBold"),
+   url("./fonts/Gilroy-Bold.ttf") format("truetype");
+  font-weight: bold;
+ }
+
+@font-face {
+  font-family: "GilroyReg";
+  src: local("GilroyReg"),
+   url("./fonts/Gilroy-Regular.ttf") format("truetype");
+  font-weight: 100;
+ }
+@font-face {
+  font-family: "GilroyM";
+  src: local("GilroyM"),
+   url("./fonts/Gilroy-Medium.ttf") format("truetype");
+  font-weight: 400;
+ }
+
 /* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
